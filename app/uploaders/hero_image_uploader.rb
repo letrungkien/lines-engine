@@ -1,5 +1,7 @@
 # encoding: utf-8
 # CarrierWave uploader for hero images.
+require 'cloudinary'
+
 class HeroImageUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 

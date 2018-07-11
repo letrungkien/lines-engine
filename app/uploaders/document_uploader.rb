@@ -1,8 +1,8 @@
 # encoding: utf-8
 # Carrierwave uploader for docuemnts.
-class DocumentUploader < CarrierWave::Uploader::Base
+require 'cloudinary'
 
-  storage :file
+class DocumentUploader < CarrierWave::Uploader::Base
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
