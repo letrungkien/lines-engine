@@ -3,8 +3,8 @@
 require 'cloudinary'
 
 class PictureUploader < CarrierWave::Uploader::Base
-
-  include CarrierWave::RMagick
+  include Cloudinary::CarrierWave
+  #include CarrierWave::RMagick
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper
