@@ -90,11 +90,39 @@ module Lines
               </div>
             </div>".html_safe
           else
-            content_tag(:span, link_to('', lines.root_path), class: 'backlink') + content_tag(:span, action_link, class: 'actionlink')
+            #content_tag(:span, link_to('', lines.root_path), class: 'backlink') + content_tag(:span, action_link, class: 'actionlink')
+
+            content_tag(:span, class: 'buttons', &block) + "<div class='btn-menu'><dic class='stripes'></div></div>".html_safe +
+            "<div class='submenu'>
+              <div class='submenu-inner'>
+                <ul>
+                  <li>#{link_to("Home", lines.root_path)}</li>
+                </ul>
+                <ul>
+                  <li>#{link_to(t('lines.buttons.formating_help').html_safe, "#", class: "btn-cheatsheet")}</li>
+                  <li>#{link_to(t('lines.buttons.about').html_safe, "http://lines.opoloo.com")}</li>
+                </ul>
+              </div>
+            </div>".html_safe
           end
         end
       end
-      html    
+      html
+    end
+
+    # Renders new article button
+    def render_new_article_button
+      link_to t('lines.buttons.new_article').html_safe, new_admin_article_path, class: "btn btn-new-article highlight"
+    end
+
+    # Renders visit blog button
+    def render_visit_blog_button
+      link_to t('lines.buttons.visit_blog').html_safe, lines.root_path, class: "btn btn-view-blog"
+    end
+
+    # Renders dashboard button
+    def render_dashboard_button
+      link_to t('lines.buttons.dashboard').html_safe, admin_articles_path, class: "btn btn-view-blog"
     end
 
     # Returns site name for actionbar, dependend on current site
