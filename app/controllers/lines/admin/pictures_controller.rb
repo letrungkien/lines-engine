@@ -7,6 +7,7 @@ module Lines
     class PicturesController < ApplicationController
       def create
         @picture = Picture.create(picture_params)
+        @picture.reload
       end
 
       # PUT /admin/pictures/1

@@ -56,6 +56,7 @@ module Lines
 
         respond_to do |format|
           if @article.save
+            @article.reload
             format.html { redirect_to admin_article_path(@article) }
           else
             format.html { render action: "new" }
